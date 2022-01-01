@@ -1,29 +1,11 @@
-# Nuxt 3 Minimal Starter
+<div align=center>
+	<img src="src/public/images/logo.png" width=256>
 
-We recommend to look at the [documentation](https://v3.nuxtjs.org).
+<br>
+<br>
 
-## Setup
+# d3r1n.com v2.0!
 
-Make sure to install the dependencies
+My Website's updated version of [d3r1n.com](https://d3r1n.com).
 
-```bash
-yarn install
-```
-
-## Development
-
-Start the development server on http://localhost:3000
-
-```bash
-yarn dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-yarn build
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).
+</div>
