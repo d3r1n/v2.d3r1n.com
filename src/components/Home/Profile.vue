@@ -1,17 +1,37 @@
 <template>
 
+    <Html>
+
+        <Head>
+
+            <Meta name="twitter:card" content="summary_large_image" />
+            <Meta content="d3r1n's Website" property="og:title" />
+            <Meta :content="`Hello! ${['👋', '👾', '👽', '🤖', '🎃', '👊', '👉👈', '💻', '🤓'][Math.floor(Math.random() * ['👋', '👾', '👽', '🤖', '🎃', '👊', '👉👈', '💻', '🤓'].length)]}\nI'm d3r1n, 15 y.o Student, Developer & Athlete.\nI'm crazy about Programming, Maths, Physics, Electronics and Sports.`" property="og:description" />
+            <Meta content="d3r1n.com" property="og:site_name" />
+            <Meta name="theme-color" content="#50fa7b" />
+            <Meta content='/images/Background.png' property='og:image' itemprop="image" />
+            <Link rel="icon" type="image/x-icon" href="/images/favicon.png" />
+
+            <Title>Home - d3r1n</Title>
+
+        </Head>
+
+    </Html>
+
     <div class="profile">
 
         <div class="profile_avatar" :style="{ borderColor: user.status}">
-            <img :src="user.avatar" alt="" draggable="false">
+            <Skeleton height="175px" width="175px" radius="0%" backgroundColor="#eceff4" v-if="!user.avatar" />
+            <img :src="user.avatar" draggable="false" v-else>
         </div>
 
         <div class="profile_username">
-            <span id="username_name">
+            <Skeleton height="45px" width="125px" radius="10px" backgroundColor="#eceff4" v-if="!user.username" />
+            <span id="username" v-else>
                 {{ user.username }}
             </span>
-
-            <span id="username_tag">
+            <Skeleton height="45px" width="125px" radius="10px" backgroundColor="#eceff4" v-if="!user.tag" />
+            <span id="tag" v-else>
                 #{{ user.tag }}
             </span>
         </div>
@@ -27,15 +47,16 @@
 import {reactive, ref} from "vue"
 
 import Spotify from './Spotify.vue'
+import Skeleton from '../Skeleton.vue'
 
 export default {
     data() {
         return {
             user: {
-                username: "Loading...",
-                tag: "Loading...",
-                avatar: "",
-                status: "",
+                username: null,
+                tag: null,
+                avatar: null,
+                status: "#5e81ac",
                 listening_to_spotify: false,
             },
             track: {
@@ -49,6 +70,7 @@ export default {
         }
     },
     components: {
+        Skeleton,
         Spotify
     },
     async mounted() {
@@ -108,10 +130,10 @@ export default {
 
             // User: Status Colors
             const STATUS_COLORS = {
-                online: '#50fa7b',
-                idle: '#ffb86c',
-                dnd: '#ff5555',
-                offline: '#6272a4',
+                online: '#a3be8c',
+                idle: '#ebcb8b',
+                dnd: '#d08770',
+                offline: '#5e81ac',
             }
 
             // User: Profile
@@ -151,63 +173,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-
-    @import '../../assets/css/variables.scss';
-
-    .profile {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        width: 400px;
-        padding: 30px;
-        background-color: var(--current-line);
-        border-radius: 50px;
-    }
-
-    .profile_avatar {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        border: 10px solid;
-        overflow: hidden;
-        margin-right: 20px;
-    }
-
-    .profile_avatar img {
-        width: 100%;
-        height: 100%;
-        user-select: none;
-    }
-
-    .profile_username {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 10px;
-        color: var(--foreground);
-    }
-
-    .profile_username #username_name {
-        font-size: 30px;
-        font-weight: bold;
-    }
-
-    .profile_username #username_tag {
-        font-size: 25px;
-        font-weight: bold;
-    }
-
-    @media screen and (max-width: $medium) {
-        .profile {
-            width: 80%;
-        }
-    }
-</style>

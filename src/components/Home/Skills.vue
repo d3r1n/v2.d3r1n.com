@@ -1,23 +1,15 @@
 <template>
 
-    <div class="skills_container">
+    <div class="skills">
 
-        <div class="skills_title">
-            Skills
-        </div>
+        <div class="skill" v-for="skill in skills" :key="skill.name">
 
-        <div class="skills">
+            <div class="skill_image">
+                 <img :src="skill.image" draggable="false" width="64" height="64">
+            </div>
 
-            <div class="skill" v-for="skill in skills" :key="skill.name">
-
-                <div class="skill_image">
-                    <img :src="skill.image" draggable="false" width="64" height="64">
-                </div>
-
-                <div class="skill_name">
-                    {{ skill.name }}
-                </div>
-
+            <div class="skill_name">
+                {{ skill.name }}
             </div>
 
         </div>
@@ -46,9 +38,9 @@ export default {
                 { name: "HTML5", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg"},
                 { name: "CSS3", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"},
                 { name: "SASS", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg"},
+                { name: "Python", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"},
                 { name: "TailwindCSS", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg"},
                 { name: "WindiCSS", image: "https://windicss.org/assets/logo.svg"},
-                { name: "Python", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"},
                 { name: "PostgresSQL", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg"},
                 { name: "MySQL", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"},
                 { name: "MongoDB", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"},
@@ -75,72 +67,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-
-    @import '../../assets/css/variables.scss';
-
-    .skills_container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 50%;
-        margin-left: 30px;
-        margin-bottom: 30px;
-    }
-
-
-    .skills_title {
-        font-size: 24px;
-        font-weight: bold;
-        color: var(--foreground);
-        margin-bottom: 20px;
-    }
-
-    .skills {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        background: var(--current-line);
-        border-radius: 50px;
-        width: 100%;
-        padding: 10px;
-    }
-    @media screen and (max-width: $medium) {
-        .skills_container {
-            width: 100%;
-            margin-left: 0;
-            margin-top: 30px;
-        }
-
-        .skills {
-            width: 90%;
-        }
-    }
-
-    .skill {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 15px;
-    }
-
-    .skill_image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: var(--comment);
-        border-radius: 20px;
-        padding: 15px;
-        margin-bottom: 10px;
-    }
-
-    .skill_name {
-        font-size: 16px;
-        font-weight: bold;
-        color: var(--foreground);
-    }
-
-</style>

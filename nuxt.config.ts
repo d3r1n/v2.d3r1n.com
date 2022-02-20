@@ -21,7 +21,7 @@ export default defineNuxtConfig({
 
     // Global Styles
     css: [
-        "@/assets/css/variables.scss",
+        "@/assets/css/nord.scss",
         "@/assets/css/main.scss"
     ],
 
