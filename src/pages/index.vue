@@ -27,7 +27,6 @@
 export default {
     beforeCreate() {
         this.$router.push("/Home")
-        this.$forceUpdate()
     },
 }
 </script>
