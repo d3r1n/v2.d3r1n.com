@@ -12,9 +12,6 @@
             <Meta content='/images/Background.png' property='og:image' itemprop="image" />
             <Link rel="icon" type="image/x-icon" href="/images/favicon.png" />
 
-            <Meta property="og:image:width" content="300" />
-            <Meta property="og:image:height" content="200" />
-
             <Title>Home - d3r1n</Title>
 
         </Head>
