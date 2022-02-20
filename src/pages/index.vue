@@ -8,7 +8,7 @@
             <Meta content="d3r1n's Website" property="og:title" />
             <Meta :content="`Hello! ${['👋', '👾', '👽', '🤖', '🎃', '👊', '👉👈', '💻', '🤓'][Math.floor(Math.random() * ['👋', '👾', '👽', '🤖', '🎃', '👊', '👉👈', '💻', '🤓'].length)]}\nI'm d3r1n, 15 y.o Student, Developer & Athlete.\nI'm crazy about Programming, Maths, Physics, Electronics and Sports.`" property="og:description" />
             <Meta content="d3r1n.com" property="og:site_name" />
-            <Meta name="theme-color" content="#50fa7b" />
+            <Meta name="theme-color" content="#2e3440" />
             <Meta content='/images/Background.png' property='og:image' itemprop="image" />
             <Link rel="icon" type="image/x-icon" href="/images/favicon.png" />
 
@@ -27,6 +27,7 @@
 export default {
     beforeCreate() {
         this.$router.push("/Home")
+        this.$forceUpdate()
     },
 }
 </script>
