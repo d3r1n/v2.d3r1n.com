@@ -25,8 +25,8 @@
 
 <script>
 export default {
-    beforeCreate() {
-        this.$router.push("/Home")
+    beforeMount() {
+        window.location.href = window.location.href + "Home"
     },
 }
 </script>

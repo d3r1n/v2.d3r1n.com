@@ -37,9 +37,5 @@ export default {
         Gists,
         Skills
     },
-
-    beforeCreate() {
-        window.location.reload();
-    },
 }
 </script>
